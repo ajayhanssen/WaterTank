@@ -31,9 +31,13 @@ a = b .* m_dot ./ (sqrt(hs))
 a = mean(a)
 
 %%
+m_dot_bar = rho*a*sqrt(h_bar);
+
 A = [-a/(2*sqrt(h_bar))];
 B = [1/(rho*A_t)];
 C = [1];
 D = 0;
+
+
 
 sys = ss(A,B,C,D)
