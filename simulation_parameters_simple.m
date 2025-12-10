@@ -1,5 +1,5 @@
 rho = 997;
-h_bar = 0.05; % m  
+h_bar = 50e-3; % m  
 A_t = 5e-5; % mm^2
 
 K_pump = 1.000; %l/min/V
@@ -31,7 +31,8 @@ a = b .* m_dot ./ (sqrt(hs))
 a = mean(a)
 
 %%
-m_dot_bar = rho*a*sqrt(h_bar);
+mdot_bar = a*sqrt(h_bar)*rho*A_t;
+u_bar = mdot_bar/K_pump + u0;
 
 A = [-a/(2*sqrt(h_bar))];
 B = [1/(rho*A_t)];
