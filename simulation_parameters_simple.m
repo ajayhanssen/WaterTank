@@ -30,6 +30,38 @@ b = 1/(rho*A_t)
 a = b .* m_dot ./ (sqrt(hs))
 a = mean(a)
 
+%% plotting
+fsize = 24
+tiledlayout(1,3)
+nexttile
+[u_out, v_1, v_2] = load_from_mat("exports_long/ss_1_4_v_long.mat");
+t = stepfile.time;
+h_2 = v_to_h(v_2);
+plot(t, h_2)
+grid on
+xlabel("$t$ in s", "Interpreter","latex", "FontSize", fsize)
+ylabel("$h$ in m", "Interpreter","latex", "FontSize", fsize)
+set(gca,'FontSize',fsize)
+
+nexttile
+[u_out, v_1, v_2] = load_from_mat("exports_long/ss_1_5_v_long.mat");
+t = stepfile.time;
+h_2 = v_to_h(v_2);
+plot(t, h_2)
+grid on
+xlabel("$t$ in s", "Interpreter","latex", "FontSize", fsize)
+ylabel("$h$ in m", "Interpreter","latex", "FontSize", fsize)
+set(gca,'FontSize',fsize)
+
+nexttile
+[u_out, v_1, v_2] = load_from_mat("exports_long/ss_1_7_v_long.mat");
+t = stepfile.time;
+h_2 = v_to_h(v_2);
+plot(t, h_2)
+grid on
+xlabel("$t$ in s", "Interpreter","latex", "FontSize", fsize)
+ylabel("$h$ in m", "Interpreter","latex", "FontSize", fsize)
+set(gca,'FontSize',fsize)
 %%
 mdot_bar = a*sqrt(h_bar)*rho*A_t;
 u_bar = mdot_bar/K_pump + u0;
